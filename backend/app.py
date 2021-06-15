@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, json, Response, request
 from flask_cors import CORS
+import os
 
 # A very basic API created using Flask that has two possible routes for requests.
 
@@ -21,7 +22,8 @@ def healthCheckResponse():
 def getMysfits():
 
     # read the mysfits JSON from the listed file.
-    response = Response(open("mysfits-response.json").read())
+    filename = os.path.join(os.path.dirname(__file__), 'mysfits-response.json')
+    response = Response(open(filename).read())
 
     # set the Content-Type header so that the browser is aware that the response
     # is formatted as JSON and our frontend JavaScript code is able to
