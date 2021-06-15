@@ -4,5 +4,8 @@ build:
   commands:
     build:
       - pip install -r backend/requirements.txt
-run: 
+run:
+  runtime-version: 3.7.7
   command: gunicorn -w 3 -b 0.0.0.0:8080 backend.app:app
+  network: 
+    port: 8080
