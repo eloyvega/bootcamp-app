@@ -1,0 +1,8 @@
+version: 1.0
+runtime: python3 
+build:
+  commands:
+    build:
+      - pip install -r backend/requirements.txt
+run: 
+  command: gunicorn -w 3 -b 0.0.0.0:8080 backend.app:app
